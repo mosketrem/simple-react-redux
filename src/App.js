@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TextInput from './TextInput';
+import { aTypes } from './constants';
 
 
 const mapStateToProps = (state) => {
@@ -13,25 +14,25 @@ const mapDispatchToProps = (dispatch) => {
     return {
         setTextInput: (name, text) => {
             dispatch({
-                type: "TEXT",
+                type: aTypes.TEXT,
                 payload: {name, text}
             })
         },
         setMulti: (event) => {
             dispatch({
-                type: "MULTISELECT",
+                type: aTypes.MULTI,
                 payload: {name: event.target.name, checked: event.target.checked}
             })
         },
         setSingle: (event) => {
             dispatch({
-                type: "SINGLESELECT",
+                type: aTypes.SINGLE,
                 payload: {name: event.target.name, checked: event.target.checked}
             })
         },
         handleSubmit: (event) => {
             dispatch({
-                type: "RESET",
+                type: aTypes.RESET,
                 payload: {event}
             })
         }
@@ -48,13 +49,11 @@ const showReset = (p) => {
 }
 
 class App extends Component {
-
   render () {
       let textInputs = [
         <TextInput name="input1" key="input1" value={this.props.input1} handler={this.props.setTextInput} />,
         <TextInput name="input2" key="input2" value={this.props.input2} handler={this.props.setTextInput} />
       ];
-
     return (
         <div>
             <form onSubmit={this.props.handleSubmit}>
