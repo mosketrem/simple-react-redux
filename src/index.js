@@ -11,7 +11,7 @@ import { setBoolField, setTextField } from './untils';
 
 const updateStateFromURL = (tState, values) => {
     ["input1", "input2", "single"].forEach((name) => {setTextField(tState, values, name)});
-    ["multi1", "multi2"].forEach((name) => {setBoolField(tState, values, name)});
+    ["multi1", "multi2", "multi3"].forEach((name) => {setBoolField(tState, values, name)});
 }
 
 
